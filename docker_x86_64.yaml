@@ -1,3 +1,4 @@
+arch: "x86_64"
 cpus: 2
 memory: 4GiB
 disk: 100GiB
@@ -56,6 +57,12 @@ provision:
     systemctl --user start dbus
     dockerd-rootless-setuptool.sh install
     docker context use rootless
+- mode: system
+  script: |
+    #!/bin/bash
+    # NOTE. IntelliJ IDEA use /private for temporary file writing w/ user privileges
+    mkdir /private
+    chmod 777 /private
 probes:
 - script: |
     #!/bin/bash

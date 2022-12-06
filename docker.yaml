@@ -30,7 +30,7 @@ mounts:
   # CAUTION: `writable` SHOULD be false for the home directory.
   # Setting `writable` to true is possible, but untested and dangerous.
   writable: false
-- location: "~/src/github.com/Orthopicks"
+- location: "~/src"
   writable: true
 - location: "/tmp/lima"
   writable: true

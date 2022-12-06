@@ -17,3 +17,5 @@ stop:
 build:
 	limactl start $(TARGET).yaml
 
+list:
+	limactl list

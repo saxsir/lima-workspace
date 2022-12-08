@@ -12,7 +12,7 @@ start:
 	limactl start $(TARGET)
 
 stop:
-	limactl stop $(TARGET)
+	-limactl stop -f $(TARGET)
 
 build:
 	limactl start $(TARGET).yaml

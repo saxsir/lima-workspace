@@ -1,7 +1,7 @@
 # aarch64 or x86_64
 ARCH:="aarch64"
-TARGET:=
 
+TARGET:=
 ifeq ($(ARCH),"aarch64")
 	TARGET:=docker
 else
@@ -16,6 +16,9 @@ stop:
 
 build:
 	limactl start $(TARGET).yaml
+
+clean: stop
+	limactl delete $(TARGET)
 
 list:
 	limactl list

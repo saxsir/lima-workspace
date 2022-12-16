@@ -201,6 +201,11 @@ provision:
     script: |
       apt install -y fontconfig fonts-ipafont
       fc-cache -fv
+  # See. https://matsuand.github.io/docs.docker.jp.onthefly/engine/security/rootless/#routing-ping-packets
+  - mode: system
+    script: |
+      echo "net.ipv4.ping_group_range = 0 2147483647" >> /etc/sysctl.conf
+      sysctl --system
 
 # Probe scripts to check readiness.
 # 🟢 Builtin default: null

@@ -39,6 +39,11 @@ memory: null
 # 🟢 Builtin default: "100GiB"
 disk: null
 
+# Mount type for above mounts, such as "reverse-sshfs" (from sshocker), "9p" (EXPERIMENTAL, from QEMU’s virtio-9p-pci, aka virtfs),
+# or "virtiofs" (EXPERIMENTAL, needs `vmType: vz`)
+# 🟢 Builtin default: "reverse-sshfs"
+mountType: 9p
+
 # Expose host directories to the guest, the mount point might be accessible from all UIDs in the guest
 # 🟢 Builtin default: null (Mount nothing)
 # 🔵 This file: Mount the home as read-only, /tmp/lima as writable
@@ -108,11 +113,6 @@ mounts:
     9p:
       securityModel: "mapped-xattr"
       cache: "mmap"
-
-# Mount type for above mounts, such as "reverse-sshfs" (from sshocker), "9p" (EXPERIMENTAL, from QEMU’s virtio-9p-pci, aka virtfs),
-# or "virtiofs" (EXPERIMENTAL, needs `vmType: vz`)
-# 🟢 Builtin default: "reverse-sshfs"
-mountType: 9p
 
 ssh:
   # A localhost port of the host. Forwarded to port 22 of the guest.
